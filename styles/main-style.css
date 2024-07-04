@@ -11,4 +11,64 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 18px;
+  color: var(--color-white);
+  background-image: url(../images/home/background-home-desktop.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Bellefair", serif;
+}
+
+h1 {
+  font-size: 150px;
+  line-height: 172px;
+}
+
+h2 {
+  font-size: 100px;
+  line-height: 114.6px;
+}
+
+h3 {
+  font-size: 56px;
+  line-height: 64.18px;
+}
+
+h4 {
+  font-size: 32px;
+  line-height: 36.67px;
+}
+
+h5 {
+  color: var(--color-secondary);
+  font-size: 28px;
+  line-height: 33.6px;
+  letter-spacing: 4.725px;
+}
+
+.subheading-1 {
+  font-family: "Bellefair", serif;
+  line-height: 32px;
+  font-size: 28px;
+}
+
+.subheading-2 {
+  font-size: 14px;
+  line-height: 16.8px;
+  letter-spacing: 2.362px;
+}
+
+ul li {
+  font-size: 16px;
+  line-height: 19.2px;
+  letter-spacing: 2.7px;
 }
