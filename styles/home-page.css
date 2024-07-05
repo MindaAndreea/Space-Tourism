@@ -18,7 +18,7 @@ ul {
   display: flex;
   list-style-type: none;
   background-color: #ffffff0a;
-  padding: 39px 165px 39px 123px;
+  padding: 39px 165px 2px 123px;
 }
 
 ul li {
@@ -36,6 +36,11 @@ a {
   display: flex;
   align-items: center;
   margin-left: 30px;
+  padding-bottom: 30px;
+}
+
+a:visited {
+  border-bottom: 2px solid var(--color-white);
 }
 
 .nav-number {
@@ -49,11 +54,56 @@ a {
 .line {
   height: 1px;
   background-color: var(--color-white);
-  width: 50%;
+  width: 45%;
   position: absolute;
   top: 50%;
   left: calc(167px + 55px);
   transform: translateY(-50%);
   z-index: -1;
   opacity: 25.15%;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-text {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  height: 382px;
+  margin-top: 130px;
+  margin-left: 165px;
+}
+
+.content-text h1 {
+  margin: 0;
+}
+
+.content-text h5,
+.content-text h1 {
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.content-text p {
+  width: 444px;
+}
+
+.content-button {
+  width: 274px;
+  height: 274px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  text-transform: uppercase;
+  font-family: "Bellefair", serif;
+  font-size: 32px;
+  line-height: 36.67px;
+  letter-spacing: 2px;
+  color: var(--color-primary);
+  margin: 385px 200px 131px 345px;
+  outline: none;
+  border: none;
 }

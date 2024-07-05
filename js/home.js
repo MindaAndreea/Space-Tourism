@@ -1,3 +1,5 @@
+import { getData } from "./functions.js";
+
 const body = document.querySelector("body");
 const navData = [
   { num: "00", text: "Home", url: "/" },
@@ -7,24 +9,6 @@ const navData = [
 ];
 
 body.textContent = "";
-
-const navContainer = document.createElement("div");
-const nav = document.createElement("nav");
-const ul = document.createElement("ul");
-const logo = document.createElement("img");
-const line = document.createElement("div");
-
-navContainer.classList.add("nav-container");
-line.classList.add("line");
-
-logo.setAttribute("src", "../images/shared/logo.svg");
-logo.setAttribute("alt", "Logo");
-
-body.appendChild(navContainer);
-navContainer.appendChild(nav);
-nav.appendChild(logo);
-nav.appendChild(line);
-nav.appendChild(ul);
 
 function addLinkItem(num, text, url, parent) {
   const li = document.createElement("li");
@@ -45,16 +29,37 @@ function addLinkItem(num, text, url, parent) {
   parent.appendChild(li);
 }
 
-navData.forEach((item) => addLinkItem(item.num, item.text, item.url, ul));
+async function initPage() {
+  const data = await getData();
 
-async function getData() {
-  try {
-    const response = await fetch("../data-json/data.json");
-    const data = await response.json();
-    // console.log(data);
-  } catch (error) {
-    console.log(error);
+  if (data) {
+    const navContainer = document.createElement("div");
+    const nav = document.createElement("nav");
+    const ul = document.createElement("ul");
+    const logo = document.createElement("img");
+    const line = document.createElement("div");
+    const content = document.createElement("div");
+
+    navContainer.classList.add("nav-container");
+    content.classList.add("content");
+    line.classList.add("line");
+
+    logo.setAttribute("src", "../images/shared/logo.svg");
+    logo.setAttribute("alt", "Logo");
+
+    body.appendChild(navContainer);
+    navContainer.appendChild(nav);
+    nav.appendChild(logo);
+    nav.appendChild(line);
+    nav.appendChild(ul);
+    body.appendChild(content);
+
+    navData.forEach((item) => addLinkItem(item.num, item.text, item.url, ul));
+
+    content.innerHTML = `<div class="content-text"><h5>${data.home.subheading}</h5><h1>${data.home.heading}</h1><p>${data.home.paragraph}</p></div><button class="content-button">${data.home.button}</button>`;
   }
 }
 
-getData();
+initPage();
+
+export { getData };
